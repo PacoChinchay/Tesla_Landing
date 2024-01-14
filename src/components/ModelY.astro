@@ -1,0 +1,29 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section
+  title="Model Y"
+  subtitle="Concertar una prueba de conducción"
+  color="white"
+>
+  <div slot="footer" class="flex gap-x-5 justify-center">
+    <a
+      class="bg-white/30 backdrop-blur-sm rounded text-sm px-12 py-3 inline-block text-black hover:bg-black hover:text-white transition-colors duration-300"
+      href="#">Entrega más rápida</a
+    >    
+    <a
+      class="bg-black/30 backdrop-blur-sm rounded text-sm px-12 py-3 inline-block text-white hover:bg-white hover:text-black transition-colors duration-300"
+      href="#">Pedido personalizado</a
+    >
+  </div>
+  <video
+    slot="background"
+    class="object-cover object-center h-full w-full"
+    autoplay
+    muted
+    loop
+    src="../../video.webm"
+  >
+  </video>
+</Section>
