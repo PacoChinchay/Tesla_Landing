@@ -9,14 +9,15 @@ const textColor = `text-${color}`
 >
   <div class="z-30 relative h-full flex flex-col">
     <header class="">
-      <h2 class={`${textColor} pt-24 text-[40px] font-medium`}>
+      <h2 class={`${textColor} pt-24 text-2xl sm:text-[40px] font-medium`}>
         {title}
       </h2>
-      <p class={`${textColor} text-sm`}>
+      <p class={`${textColor} text-xs sm:text-sm`}>
         {subtitle}
       </p>
     </header>
-    <footer class="flex flex-grow justify-end flex-col pb-16">
+
+    <footer class="flex flex-grow justify-end items-center flex-col pb-14 sm:pb-16">
         <slot name="footer"/>
     </footer>
   </div>

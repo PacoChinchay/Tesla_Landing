@@ -8,18 +8,19 @@ import Section from "./Section.astro"
   subtitle="Explorar inventario"
   color="black"
 >
-  <div slot="footer" class="flex gap-x-6 mx-auto">
+  <div slot="footer" class="flex flex-col sm:flex-row gap-2 sm:gap-5 sm:justify-center">
         <a
-          class="bg-gray-600 text-sm rounded font-medium text-white px-12 py-3 transition-colors hover:bg-black hover:text-white inline-flex justify-center items-center"
+          class="bg-gray-600 text-xs sm:text-sm rounded font-medium text-white px-12 py-3 transition-colors hover:bg-black hover:text-white inline-flex justify-center items-center"
           href="#">Pedido personalizado</a
         >
         <a
-          class="bg-white text-sm rounded font-medium text-black px-12 py-3 transition-colors hover:bg-black hover:text-white inline-flex justify-center items-center"
+          class="bg-white text-xs sm:text-sm rounded font-medium text-black px-12 py-3 transition-colors hover:bg-black hover:text-white inline-flex justify-center items-center"
           href="#">Prueba de conducción</a
         >
       </div>
   <img slot="background"
       src="../../Model-3.avif"
+      class="object-cover object-center h-full w-full"
       alt="Model 3 rojo estacionado sobre hormigón erosionado delante de un paisaje urbano"
   />
   </video>
