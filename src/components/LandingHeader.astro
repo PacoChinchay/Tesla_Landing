@@ -1,38 +1,44 @@
 ---
 import Logo from "./Logo.astro";
-import Section from "./Section.astro";
+import MenuButton from './MenuButton.astro'
+import Soporte from './icons/Soporte.astro'
+import UserIcon from './icons/UserIcon.astro'
+
 ---
 
 <header
-  class="Landing-section py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
+  class="header Landing-section py-3 px-10 flex items-center fixed justify-between top-0 w-full z-40 text-white min-w-80"
   id="Landing-Header"
 >
-  <div class="flex flex-grow basis-0">
+<div class="loguito flex flex-grow basis-0">
+  <a href="/">
     <Logo />
-  </div>
-
-  <nav class="">
-    <ul
-      class="flex text-xs [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:font-medium [&>li>a]:text-current"
-    >
-      <li><a href="#modely">Model Y</a></li>
-      <li><a href="#model3">Model 3</a></li>
-      <li><a href="#models">Model s</a></li>
-      <li><a href="#modelx">Model X</a></li>
-      <li><a href="#powerwall">Powerwall</a></li>
-      <li><a href="#accesorios">Accesorios</a></li>
-    </ul>
-  </nav>
-
-  <nav class="flex flex-grow justify-end basis-0">
-    <ul
-      class="flex text-xs [&>li>a]:inline-block [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:font-medium [&>li>a]:text-current"
-    >
-      <li><a href="#">Soporte</a></li>
-      <li><a href="#">Tienda</a></li>
-      <li><a href="#">Cuenta</a></li>
-      <li><a href="#">Menú</a></li>
-    </ul>
+  </a>
+</div>
+<div class="hamburguesa">
+  <MenuButton />
+</div>
+<nav class="navlist flex items-center w-full justify-between">
+      <ul
+        class="cars mx-auto flex text-xs [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:font-medium [&>li>a]:text-current"
+      >
+        <li><a href="#modely">Model Y</a></li>
+        <li><a href="#model3">Model 3</a></li>
+        <li><a href="#models">Model s</a></li>
+        <li><a href="#modelx">Model X</a></li>
+        <li><a href="#powerwall">Powerwall</a></li>
+        <li><a href="#accesorios">Accesorios</a></li>
+      </ul>
+      <ul
+        class="profile flex text-xs [&>li>a]:inline-block [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:font-medium [&>li>a]:text-current"
+      >
+        <li>
+          <a href="#"><Soporte /></a>
+        </li>
+        <li>
+          <a href="#"><UserIcon /></a>
+        </li>
+      </ul>
   </nav>
 
   <div
@@ -93,4 +99,48 @@ import Section from "./Section.astro";
 
   const $sections = document.querySelectorAll(".landing-section");
   $sections.forEach((section) => observer.observe(section));
+</script>
+<style>
+  header .hamburguesa {
+    display: none;
+  }
+  @media screen and (max-width: 1050px) {
+    header .hamburguesa {
+      display: flex;
+      z-index: 1;
+    } 
+    header .navlist {
+      display: none;
+    }
+    header .activo {
+      display: block;
+      flex-direction: column;
+      background-color: #fff;
+      color: #000;
+      width: 100%;
+      
+    }
+    .navlist ul {
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px;
+    }
+    .navlist ul li {
+      text-align: center;
+    }
+    .navlist ul li:hover {
+      
+      cursor: pointer;
+    }
+  }
+</style>
+<script>
+  const button = document.querySelector('.hamburguesa')
+  const nav = document.querySelector('.navlist')
+  const header = document.querySelector('.header')
+
+  button.addEventListener('click', () => {
+    header.classList.toggle('flex-wrap')
+    nav.classList.toggle('activo')
+  })
 </script>
