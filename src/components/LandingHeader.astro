@@ -104,35 +104,44 @@ import UserIcon from './icons/UserIcon.astro'
   header .hamburguesa {
     display: none;
   }
-  @media screen and (max-width: 1050px) {
-    header .hamburguesa {
-      display: flex;
-      z-index: 1;
-    } 
-    header .navlist {
-      display: none;
-    }
-    header .activo {
-      display: block;
-      flex-direction: column;
-      background-color: #fff;
-      color: #000;
-      width: 100%;
-      
-    }
-    .navlist ul {
-      flex-direction: column;
-      gap: 4px;
-      padding: 10px;
-    }
-    .navlist ul li {
-      text-align: center;
-    }
-    .navlist ul li:hover {
-      
-      cursor: pointer;
-    }
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
   }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  header .hamburguesa {
+    display: flex;
+    z-index: 1;
+  } 
+  header .navlist {
+    display: none;
+    animation: slideDown .3s forwards;
+  }
+  header .activo {
+    display: block;
+    flex-direction: column;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+  }
+  .navlist ul {
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+  }
+  .navlist ul li {
+    text-align: center;
+  }
+  .navlist ul li:hover {
+    cursor: pointer;
+  }
+}
+
 </style>
 <script>
   const button = document.querySelector('.hamburguesa')
